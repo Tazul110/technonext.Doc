@@ -1,0 +1,242 @@
+@import "./app/app-loading";
+@import "./app/material-overrides";
+@import "./app/components";
+@import "./app/responsive";
+
+@mixin app-custom() {
+    // Custom
+    @include app-loading-theme();
+    @include material-overrides();
+    @include app-components();
+    @include app-responsive();
+
+    .app-header__logo {
+        padding: 0 1.5rem;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        transition: width 0.2s;
+
+        .nav-brand {
+            width: 200px;
+        }
+    }
+
+    .app-toolbar {
+        &.mat-toolbar-single-row {
+            padding-left: 0;
+        }
+    }
+
+    .app-toolbar.header-shadow {
+        box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%),
+            0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+    }
+
+    .app-container {
+        background: #f1f4f6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .spinner-container {
+        z-index: 100001;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    app-main {
+        flex: 1;
+    }
+
+    .example-table-container {
+        &::-webkit-scrollbar {
+            width: 25px; // for vertical scroll bar
+            height: 25px; // for horizontal scroll bar
+        }
+    }
+
+    .mat-sidenav-content {
+        &::-webkit-scrollbar {
+            width: 8px; // for vertical scroll bar
+            height: 8px; // for horizontal scroll bar
+        }
+    }
+
+    .app-main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        flex: 1;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .app-main__outer {
+        background-color: rgb(241, 244, 246);
+        // height: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .app-main .app-main__inner {
+        flex: 1;
+    }
+
+    .app-page-title.app-page-title-simple {
+        margin: 0;
+        background: 0 0 !important;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+    }
+
+    .app-page-title {
+        padding: 30px;
+        margin: -30px -30px 30px;
+        position: relative;
+    }
+
+    .app-page-title .page-title-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .app-page-title .page-title-heading {
+        font-size: 1.25rem;
+        font-weight: 400;
+        display: flex;
+        align-content: center;
+        align-items: center;
+    }
+
+    .app-page-title .page-title-heading,
+    .app-page-title .page-title-subheading {
+        margin: 0;
+        padding: 0;
+    }
+
+    .center-elem {
+        display: flex;
+        align-items: center;
+        align-content: center;
+    }
+
+    .app-page-title .page-title-subheading {
+        padding: 3px 0 0;
+        font-size: 0.88rem;
+        opacity: 0.6;
+    }
+
+    .app-page-title .page-title-heading,
+    .app-page-title .page-title-subheading {
+        margin: 0;
+        padding: 0;
+    }
+
+    .opacity-10 {
+        opacity: 1 !important;
+    }
+
+    .app-page-title .page-title-subheading {
+        padding: 3px 0 0;
+        font-size: 0.88rem;
+        opacity: 0.6;
+    }
+
+    .app-page-title .page-title-subheading .breadcrumb {
+        padding: 0;
+        margin: 3px 0 0;
+        background: 0 0;
+    }
+
+    .breadcrumb {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+        list-style: none;
+        background-color: #e9ecef;
+        border-radius: 0.25rem;
+    }
+
+    .breadcrumb-item.active {
+        color: #6c757d;
+    }
+
+    .breadcrumb-item+.breadcrumb-item {
+        padding-left: 0.5rem;
+    }
+
+    // cards
+    .card-shadow-primary {
+        box-shadow: 0 0.46875rem 2.1875rem rgb(63 106 216 / 3%), 0 0.9375rem 1.40625rem rgb(63 106 216 / 3%),
+            0 0.25rem 0.53125rem rgb(63 106 216 / 5%), 0 0.125rem 0.1875rem rgb(63 106 216 / 3%) !important;
+    }
+
+    .sticky-top {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .btn-user {
+        padding-left: 0 !important;
+
+        img {
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .mat-button-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-user-text {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            font-size: 0.8rem;
+            margin-left: 1rem !important;
+            white-space: nowrap;
+            line-height: 21px;
+
+            .btn-user-text__top {
+                opacity: 0.8;
+                font-weight: 700;
+            }
+
+            .btn-user-text__bottom {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .icon-start {
+        margin-right: 7px;
+    }
+
+    .hide{
+        display: none !important;
+    }
+
+    .table-total-number{
+        display: block;
+        color: #000 !important;
+        font-weight: 700!important;
+        text-align: end;
+    }
+}
+
+@import "./app/app-toaster";

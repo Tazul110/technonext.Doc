@@ -1,0 +1,173 @@
+@mixin material-overrides() {
+    .mat-toolbar.mat-primary {
+        background: #142f84;
+        color: white;
+    }
+    .mat-toolbar.mat-primary.pagetitle.theme2 {
+        background: #007bff;
+        color: white;
+    }
+    .mat-checkbox-label {
+        white-space: initial !important;
+    }
+    .mat-toolbar-single-row.pagetitle {
+        height: 40px;
+    }
+    .theme2 tr.mat-header-row {
+        background-color: #f8f8f8;
+        height: 35px !important;        
+    }
+    tr.mat-header-row {
+        background-color: #142f84;
+        height: 35px !important;
+    }
+    .theme2 .mat-header-cell {
+        //color: #000;//Modified by sonali. Dated: 18 Aug 2022
+        color: #007bff;
+        font-weight: bold;
+        padding-left: 5px !important;
+        //font-size: 14px;
+        //Modified by Sonali. Dated: 17 Aug 2022
+        font-size: 16px;
+        letter-spacing: 1px;
+
+    }
+
+    .mat-header-cell {
+        color: #FFF;
+        font-weight: bold;
+        padding-left: 5px !important;
+    }
+
+    .mat-cell {
+        color: #2f4786;
+        padding-left: 5px !important;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 14px;
+    }
+
+    td a.mat-icon-button {
+        height: 30px;
+        width: 30px;
+    }
+
+    td a mat-icon.material-icons {
+        font-size: 20px;
+        height: 30px;
+        width: 30px;
+    }
+
+    td a .mat-button-wrapper fa-icon {
+        font-size: 18px !important;
+        display: flex;
+    }
+
+    table.table-list,
+    table.table-list td,
+    table.table-list th {
+        border: 1px solid #dbd7d7;
+    }
+
+    tr.mat-row:nth-child(even) {
+        background-color: #f8f8f8;
+    }
+
+    tr.mat-row {
+        height: 44px !important;
+    }
+
+    .global-search .mat-form-field .mat-form-field-wrapper {
+        padding-bottom: 0;
+    }
+
+    .app-nav-accordion {
+        .mat-expansion-panel {
+            border-radius: 0px !important;
+            box-shadow: none !important;
+
+            &.mat-expansion-panel-spacing {
+                margin: 0px;
+            }
+
+            .mat-expansion-panel-body {
+                padding: 0px;
+            }
+
+            .mat-expansion-panel-header {
+                height: 40px;
+                padding: 0px 24px 0px 16px;
+            }
+
+            .mat-expansion-panel-header-title {
+                color: rgba(0, 0, 0, 0.54);
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    button.mat-button .mat-icon,
+    a.mat-button .mat-icon,
+    a.mat-raised-button .mat-icon,
+    a.mat-flat-button .mat-icon,
+    a.mat-stroked-button .mat-icon {
+        vertical-align: top;
+        font-size: 1.25em;
+    }
+
+    .mat-toolbar {
+        background: #fff;
+    }
+
+    .mat-toolbar.transparent {
+        background: transparent;
+    }
+
+    .bottom-sheet {
+        .mat-bottom-sheet-container {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .mat-expansion-panel-content {
+        background: #FFF;
+    }
+
+    .mat-icon-button {
+        display: inline-flex!important;
+        justify-content: center;
+        align-items: center;
+    }
+    .mat-card-header-text {
+        margin-left: 0 !important;
+    }
+    .list-view .mat-expansion-panel-body {
+        min-height: 80vh;
+    }
+    .list-view-remove .mat-expansion-panel-body {
+        min-height: auto !important;
+    }
+    .carry-value .mat-form-field-outline {
+        background-color: #f5f8fa !important;
+    }
+    .current-value .mat-form-field-outline {
+        background-color: yellow !important;
+    }
+    .survivorbuttons .mat-button-toggle-checked.mat-button-toggle-appearance-standard {
+        color: #4DB3A2 !important;
+        font-weight: 500 !important;
+    }
+    .btn-text-wrap.mat-raised-button {
+        white-space: pre-wrap !important;
+        line-height: 1.3;
+    }
+    .deposit-payment-selection-modal tr{
+        cursor: pointer;
+    }
+
+    ::ng-deep .mdc-notched-outline__notch {
+        border-right: none !important;
+    }
+}

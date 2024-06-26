@@ -1,0 +1,8 @@
+@mixin app-responsive() {
+    @media screen and (max-width: 768px) {
+        .mat-icon-button {
+            width: auto !important;
+            padding-right: 5px !important;
+        }
+    }
+}
