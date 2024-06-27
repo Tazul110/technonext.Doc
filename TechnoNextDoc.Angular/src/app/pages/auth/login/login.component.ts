@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
-import { userModel } from '../../../Models/login.model';
+
 import { NgIf } from '@angular/common';
-import { UserService } from '../../../shared/api-services/users/user.service';
+import { UserLoginRequest, UserResponse } from '../../../shared/api-models';
+import { AuthService } from '../../../shared/api-services/users/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +16,8 @@ import { UserService } from '../../../shared/api-services/users/user.service';
 })
 export class LoginComponent implements OnInit {
   signInForm!: FormGroup;
-  data: any;
-  constructor(private fb: FormBuilder, private router: Router, private userService: UserService) { }
+  data: UserResponse | undefined;
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.signInForm = this.fb.group({
@@ -29,23 +30,20 @@ export class LoginComponent implements OnInit {
     return this.signInForm.controls;
   }
 
-  createAccount() {
-    console.log("in create account");
-    this.router.navigate(['/registration']); // Update with your desired route
-  }
+
 
   signIn() {
     if (this.signInForm.valid) {
-      const user_LogIn: userModel = this.signInForm.value;
-      console.log(user_LogIn);
 
-      this.userService.login(user_LogIn).subscribe(
-        (data: any) => {
+      const userLogIn: UserLoginRequest = this.signInForm.value;
 
-          this.data = data;
-          console.log(data)
+      this.authService.Login(userLogIn).subscribe((response: UserResponse) => {
+        this.data = response;
+        console.log('Login successful:', response);
+      });
 
-        });
+    } else {
+      console.error('Form is invalid.');
     }
   }
 }

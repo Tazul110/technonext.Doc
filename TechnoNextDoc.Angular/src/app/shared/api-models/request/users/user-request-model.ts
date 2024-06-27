@@ -9,6 +9,14 @@ export interface UserRequest {
 
 
 export interface UserLoginRequest {
-    username: string;
-    password: string;
+    email: string,
+    password: string,
+}
+
+export interface registrationModel {
+    firstName: string,
+    lastName: string,
+    companyName: string,
+    email: string,
+    password: string
 }

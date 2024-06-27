@@ -1,21 +1,25 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { registrationModel } from '../../../Models/registration.model';
 import { confirmPasswordValidator } from '../../../shared/form-validators/confirm-password.validator';
 import { NgIf } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../../../shared/api-services/users/auth.service';
+import { registrationModel } from '../../../shared/api-models';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf, HttpClientModule],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss'
 })
 export class RegistrationComponent {
 
   registrationForm!: FormGroup;
+  //dataStatus!: boolean;
+  dataStatus: boolean | undefined;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
@@ -36,13 +40,19 @@ export class RegistrationComponent {
 
 
   registration() {
-    console.log("in registration page", this.f)
+
+    //console.log("in registration page", this.f)
 
     if (this.registrationForm.valid) {
-      const { confirmPassword, ...userRegistration } = this.registrationForm.getRawValue();
+      const userRegistration: registrationModel = this.registrationForm.value;
 
-      console.log(userRegistration)
+      this.authService.Register(userRegistration).subscribe((response: boolean) => {
+        this.dataStatus = response;
+
+        console.log('Registration successful:', this.dataStatus);
+      });
+    } else {
+      console.error('Form is invalid.');
     }
-
   }
 }

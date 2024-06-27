@@ -6,18 +6,19 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {UserService} from "../api-services/users/user.service";
+import { AuthService } from '../api-services/users/auth.service';
 
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
   constructor(
-    private userService: UserService
-  ) {}
+    private userService: AuthService
+  ) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    let token = this.userService.getToken();
+    // let token = this.userService.getToken();
+    let token = ''
 
     if (token) {
       request = request.clone({

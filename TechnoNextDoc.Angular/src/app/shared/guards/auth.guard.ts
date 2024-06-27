@@ -2,7 +2,7 @@ import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { isPlatformServer } from '@angular/common';
-import {UserService} from "../api-services/users/user.service";
+import { UserService } from "../api-services/users/user.service";
 
 
 @Injectable({
@@ -32,6 +32,6 @@ export class AuthGuard implements CanActivate {
 
         // If token is not valid, sign out and navigate to login page
         this.userService.signOut();
-        return this.router.createUrlTree(['/login'], { queryParams: { returnUrl: state.url }});
+        return this.router.createUrlTree(['/login'], { queryParams: { returnUrl: state.url } });
     }
 }
